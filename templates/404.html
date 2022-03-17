@@ -1,0 +1,22 @@
+{% extends 'bootstrap/base.html' %}
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon-96x96.png') }}" type="image/png">
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role = navigation>
+        <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+    </div>
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <p class="h3 text-danger">Nie ma takiej strony</p>
+        </div>
+    </div>
+{% endblock %}

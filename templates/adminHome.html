@@ -1,0 +1,50 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role = navigation>
+        <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/homeAdmin">Home</a>
+            <a class="navbar-brand" href="/editAdmin?id=1">Edit</a>
+        </div>
+    </div>
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{message}}
+        </div>
+        {% endfor  %}
+        <div class="page-header">
+            <p class="h3 text-danger">Dane</p>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Login</th>
+                <th>Password</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record[2] }}</td>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td><a class="btn btn-sm btn-primary" href="/editAdmin?id={{ record[2] }}">Edit</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

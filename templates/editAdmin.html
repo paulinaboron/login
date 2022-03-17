@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+{% block title %} {{ title }} {% endblock %}
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role = navigation>
+        <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/homeAdmin">Home</a>
+            <a class="navbar-brand" href="/editAdmin?id=1">Edit</a>
+        </div>
+    </div>
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="page-header">
+            <p class="h3 text-danger">Edit</p>
+        </div>
+        <div class="col-lg-6">
+            {{ wtf.quick_form(form, action="/editDataAdmin") }}
+        </div>
+
+    </div>
+{% endblock %}
